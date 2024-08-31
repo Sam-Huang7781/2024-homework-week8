@@ -10,3 +10,13 @@ a{
     text-decoration: none;
     color: black;
 }
+img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+p,span,strong{
+    letter-spacing: 0.05em;
+}

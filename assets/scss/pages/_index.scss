@@ -1,0 +1,9 @@
+.hero-card {
+  border-radius: 80px;
+  width: 1600px;
+  @media screen and (max-width: 992px) {
+    border-radius: 0;
+    width: auto;
+    min-height: 390px;
+  }
+}
