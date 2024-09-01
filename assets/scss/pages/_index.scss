@@ -4,6 +4,13 @@
   @media screen and (max-width: 992px) {
     border-radius: 0;
     width: auto;
-    min-height: 390px;
+    img{
+      height: 390px;
+      object-fit: cover;
+    }
+    .explore{
+      border-radius: 0px !important;
+      // width: 780px;
+    }
   }
 }
