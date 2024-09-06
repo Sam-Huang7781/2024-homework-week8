@@ -25,7 +25,7 @@ function moveOutputPlugin() {
 export default defineConfig({
   // base 的寫法：
   // base: '/Repository 的名稱/'
-  base: '/web-layout-training-vite/',
+  base: '/2024-homework-week8/',
   plugins: [
     liveReload(['./layout/**/*.ejs', './pages/**/*.ejs', './pages/**/*.html']),
     ViteEjsPlugin(),
@@ -33,6 +33,8 @@ export default defineConfig({
   ],
   server: {
     // 啟動 server 時預設開啟的頁面
+    // host: '0.0.0.0', // 允許所有 IP 訪問
+    // port: 5173, // 你使用的端口號
     open: 'pages/index.html',
   },
   build: {
