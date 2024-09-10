@@ -28,11 +28,11 @@
   }
   
   .card:nth-child(odd) {
-    transform: translateY(40px);
+    transform: translateY(80px);
   }
   
   .card:nth-child(even) {
-    transform: translateY(-40px);
+    transform: translateY(-80px);
   }
   
 }
