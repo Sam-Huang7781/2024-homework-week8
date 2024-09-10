@@ -19,7 +19,7 @@
   <body>
     <%- include('./layout/header'); -%>
     <!-- section banner swiper -->
-    <div class="swiper Swiper-Banner">
+    <section class="swiper Swiper-Banner">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
           <section
@@ -198,10 +198,10 @@
         class="swiper-button-prev ms-25 p-8 bg-white rounded-4 d-none d-xxl-flex"
         style="box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1)"
       ></div>
-    </div>
+    </section>
 
     <!-- section lesson for desktop -->
-    <div class="lesson-desktop">
+    <section class="lesson-desktop">
       <div class="container my-lg-25 position-relative d-lg-block d-none">
         <img
           src="../assets/images/deco/flower-2.png"
@@ -489,10 +489,10 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- section lesson for smartphone -->
-    <div class="lesson-phone">
+    <section class="lesson-phone">
       <div class="container my-lg-25 my-20 position-relative d-lg-none d-block">
         <img
           src="../assets/images/deco/flower-2.png"
@@ -721,10 +721,10 @@
           <a href="#" class="btn btn-primary fs-3 py-4 mt-4">更多募資課程</a>
         </section>
       </div>
-    </div>
+    </section>
 
     <!-- section buy -->
-    <div class="buy">
+    <section class="buy">
       <div class="container my-lg-25 my-20 position-relative">
         <img
           src="../assets/images/deco/flower-4.png"
@@ -1051,7 +1051,7 @@
           style="box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1)"
         ></div>
       </div>
-    </div>
+    </section>
 
     <!-- section explore-phone -->
     <section class="explore-phone d-xl-none d-block">
@@ -1388,7 +1388,7 @@
     </section>
 
     <!-- section teacher-desktop -->
-    <section class="teacher-desktop">
+    <section class="teacher-desktop mb-10">
       <div class="container">
         <div class="swiper Swiper-teacherList px-10">
           <div class="card-container swiper-wrapper">
@@ -1520,6 +1520,7 @@
               </div>
             </div>
           </div>
+          <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1" aria-current="true"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span></div>
         </div>
       </div>
     </section>
@@ -1623,6 +1624,10 @@
         slidesPerView: "auto",
         spaceBetween: 48,
         loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
         breakpoints: {
           640: {
             slidesPerView: 1, // 小螢幕顯示 2 個滑塊
