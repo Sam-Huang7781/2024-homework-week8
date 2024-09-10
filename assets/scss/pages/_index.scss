@@ -15,3 +15,24 @@
   }
 }
 
+.teacher-desktop{
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .card {
+    background-color: white;
+    border-radius: 10px;
+  }
+  
+  .card:nth-child(odd) {
+    transform: translateY(40px);
+  }
+  
+  .card:nth-child(even) {
+    transform: translateY(-40px);
+  }
+  
+}
