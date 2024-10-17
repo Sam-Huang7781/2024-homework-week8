@@ -62,29 +62,94 @@
         </form>
       </div>
       <!-- Right side buttons -->
-      <div class="d-flex align-items-center">
+      <div class="d-flex align-items-center gap-2">
+        <!-- Notification Button -->
         <button
-          class="btn notify-button me-2 position-relative"
-          aria-label="Notifications"
+          class="nav-link notify-button me-2 position-relative"
+          type="button"
+          id="dropdownMenuButtonNotice"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
         >
           <span
             class="position-absolute translate-middle rounded-circle bg-primary"
-            style="width: 10px; height: 10px; right: 0"
-          >
-          </span>
+            style="width: 10px; height: 10px; right: -12px"
+          ></span>
           <i class="bi bi-bell"></i>
         </button>
+
+        <!-- Dropdown Menu -->
+        <div
+          class="dropdown-menu dropdown-menu-end p-0"
+          aria-labelledby="dropdownMenuButtonNotice"
+          style="width: 320px; position: absolute;right: 480px;"
+        >
+          <ul
+            class="card card-body list-group p-0"
+            aria-labelledby="dropdownMenuButtonNotice"
+            style="height: 300px;overflow-y: scroll;"
+          >
+            <div
+              class="card-header d-flex align-items-center justify-content-end text-primary-100 bg-white"
+            >
+              <i class="bi bi-check-circle-fill fs-5 me-2"></i>
+              <span class="font-size-14">全部標記為已讀</span>
+            </div>
+            <li
+              class="list-group-item active d-flex align-items-center justify-content-center gap-4 p-4"
+            >
+              <i
+                class="bi bi-megaphone fs-5 text-info-100 bg-info-20 d-flex p-3 rounded-circle"
+              ></i>
+              <div>
+                <h5 class="fs-4">
+                  系統通知：6 月 30 日 02:00 網站系統排程更新
+                </h5>
+                <span class="font-size-14 text-neutral-60">4 天前</span>
+              </div>
+            </li>
+            <li
+              class="d-flex align-items-center justify-content-center gap-4 p-4"
+            >
+              <i
+                class="bi bi-bell fs-5 text-danger-100 bg-danger-20 d-flex p-3 rounded-circle"
+              ></i>
+              <div>
+                <h5 class="fs-4">
+                  募資開課：您購買的募資課程已成功開課！將於 3 天後公布課綱！
+                </h5>
+                <span class="font-size-14 text-neutral-60">7 天前</span>
+              </div>
+            </li>
+            <li
+              class="list-group-item active d-flex align-items-center justify-content-center gap-4 p-4"
+            >
+              <i
+                class="bi bi-bell fs-5 text-danger-100 bg-danger-20 d-flex p-3 rounded-circle"
+              ></i>
+              <div>
+                <h5 class="fs-4">
+                  系統通知：6 月 21 日 02:00 網站系統排程更新
+                </h5>
+                <span class="font-size-14 text-neutral-60">6 天前</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Shopping Cart Button -->
         <button
           class="btn cart-button position-relative me-3"
           aria-label="Shopping cart"
         >
           <span
             class="position-absolute rounded-circle bg-primary badge-dot fs-3 text-white"
+            >2</span
           >
-            2
-          </span>
           <i class="bi bi-cart3"></i>
         </button>
+
+        <!-- Login/Register Button -->
         <button class="btn btn-primary">登入 / 註冊</button>
       </div>
     </div>
@@ -95,9 +160,7 @@
   class="navbar navbar-expand-lg navbar-light bg-white py-4 d-lg-none d-block"
 >
   <div class="container">
-    <div
-      class="navbar-containe d-flex justify-content-between w-100"
-    >
+    <div class="navbar-containe d-flex justify-content-between w-100">
       <div class="left d-flex align-items-center">
         <a class="navbar-brand me-10" href="./index.html">
           <img
@@ -113,6 +176,7 @@
         <button
           class="btn notify-button me-2 position-relative"
           aria-label="Notifications"
+          id="notice-dropdownMenuButton"
         >
           <span
             class="position-absolute translate-middle rounded-circle bg-primary"
@@ -136,13 +200,10 @@
         <button
           class="navbar-toggler border-0"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarContent"
-          aria-controls="navbarContent"
+          data-bs-toggle="dropdown"
           aria-expanded="false"
-          aria-label="Toggle navigation"
         >
-        <span>
+          <span>
             <div
               style="width: 20px; height: 3px; background-color: #4b4b4b"
             ></div>
