@@ -38,10 +38,8 @@
           >
             探索
           </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          <ul class="dropdown-menu p-0" aria-labelledby="dropdownMenuButton1">
+            <%- include('./layout/dropdown'); -%>
           </ul>
         </div>
         <!-- Search bar -->
@@ -82,12 +80,12 @@
         <div
           class="dropdown-menu dropdown-menu-end p-0"
           aria-labelledby="dropdownMenuButtonNotice"
-          style="width: 320px; position: absolute;right: 480px;"
+          style="width: 320px; position: absolute; right: 480px"
         >
           <ul
             class="card card-body list-group p-0"
             aria-labelledby="dropdownMenuButtonNotice"
-            style="height: 300px;overflow-y: scroll;"
+            style="height: 300px; overflow-y: scroll"
           >
             <div
               class="card-header d-flex align-items-center justify-content-end text-primary-100 bg-white"
@@ -125,7 +123,7 @@
               class="list-group-item active d-flex align-items-center justify-content-center gap-4 p-4"
             >
               <i
-                class="bi bi-bell fs-5 text-danger-100 bg-danger-20 d-flex p-3 rounded-circle"
+                class="bi bi-megaphone fs-5 text-info-100 bg-info-20 d-flex p-3 rounded-circle"
               ></i>
               <div>
                 <h5 class="fs-4">
@@ -221,3 +219,4 @@
     </div>
   </div>
 </header>
+<!-- <%- include('./layout/dropdown'); -%> -->
