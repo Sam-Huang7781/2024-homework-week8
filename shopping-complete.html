@@ -15,8 +15,8 @@
       rel="stylesheet"
     />
     <title>shopping-complete</title>
-    <script type="module" crossorigin src="/2024-homework-week8/assets/main-81cf7411.js"></script>
-    <link rel="stylesheet" href="/2024-homework-week8/assets/main-d53158b8.css">
+    <script type="module" crossorigin src="/2024-homework-week8/assets/main-ef41d83c.js"></script>
+    <link rel="stylesheet" href="/2024-homework-week8/assets/main-625df14f.css">
   </head>
   <body>
     <header
@@ -59,10 +59,181 @@
           >
             探索
           </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          <ul class="dropdown-menu p-0" aria-labelledby="dropdownMenuButton1">
+            <section class="d-flex" style="height: 600px;">
+  <div id="explore-container" class="bg-neutral-10"></div>
+  <div id="code-container" class="bg-white"></div>
+  <div id="courses-container">
+    <h3 class="fs-4 ms-6 pb-2 pt-4">🔥 熱門網頁前端課程</h3>
+  </div>
+</section>
+
+<script>
+  const classList = [
+    {
+      title: "小白也會！從零開始學習 Python 程式設計",
+      price: "NT$ 3,200",
+      discount: "NT$ 2,480",
+      join: "已有 420 位同學加入",
+      review: "⭐4.0(333)",
+    },
+    {
+      title: "小白也會！從零開始學習 Java 程式設計",
+      price: "NT$ 3,600",
+      discount: "NT$ 2,600",
+      join: "已有 340 位同學加入",
+      review: "⭐3.8(266)",
+    },
+    {
+      title: "小白也會！從零開始學習 C++ 程式設計",
+      price: "NT$ 4,000",
+      discount: "NT$ 2,800",
+      join: "已有 320 位同學加入",
+      review: "⭐3.9(289)",
+    },
+  ];
+
+  // 容器，將生成的課程卡片插入此容器
+  const coursesContainer = document.getElementById("courses-container");
+
+  // 函數，用於創建課程卡片的 HTML
+  function createCourseCard(course) {
+    return `
+      <div class="container mb-lg-10 p-0 pt-4 position-relative d-flex border-top mx-6" style="width: 400px">
+        <img src="/assets/images/course-5.png" alt="" class="object-fit-cover rounded-4 me-3 position-relative" style="width: 100px; height: 100px" />
+        <span class="position-absolute bg-danger-20 text-danger-100 rounded-4 px-2 m-1">8折</span>
+        <div>
+          <h2 class="fs-4 fw-bold mb-4" style="letter-spacing: 0.02em; line-height: 1.5">
+            ${course.title}
+          </h2>
+          <ul class="d-flex justify-content-between p-0 pb-2 mb-2 border-bottom">
+            <li class="teacher d-flex align-items-center">
+              <img src="../assets/images/avatar-2.png" alt="" width="32" />
+              <span class="ms-2 fs-3">Kelly Hsu</span>
+            </li>
+            <li class="price">
+              <p class="text-primary fw-bold">${course.discount}</p>
+              <span class="fs-3 d-block text-end text-decoration-line-through">${course.price}</span>
+            </li>
+          </ul>
+          <div class="card-footer d-flex flex-row-reverse align-items-center justify-content-between p-0 mx-n5">
+            <div class="teacher d-flex align-items-center me-5">
+              <span class="ms-1 fs-3 text-black fw-bold">${course.review}</span>
+            </div>
+            <div class="price ms-5">
+              <span class="fs-3 d-lg-block">${course.join}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // 遍歷 classList，將每個課程插入到容器中
+  classList.forEach((course) => {
+    coursesContainer.innerHTML += createCourseCard(course);
+  });
+
+  const exploreAll = [
+    "音樂",
+    "攝影",
+    "程式",
+    "藝術",
+    "人文",
+    "行銷",
+    "健康",
+    "投資理財",
+    "心靈成長",
+    "職場技能",
+    "生活品味",
+    "音樂",
+    "攝影",
+    "程式",
+    "藝術",
+    "人文",
+    "行銷",
+    "健康",
+    "投資理財",
+    "心靈成長",
+    "職場技能",
+    "生活品味",
+  ];
+  const codeAll = [
+    "程式入門",
+    "網頁前端",
+    "網頁後端",
+    "網站架設",
+    "資訊安全",
+    "程式語言",
+    "遊戲開發",
+    "資料科學",
+    "人工智慧",
+    "量化分析",
+  ];
+
+  // 動態生成 exploreAll 列表
+  function createExploreList() {
+    const exploreContainer = document.getElementById("explore-container");
+    let exploreListHTML =
+      '<ul class="explore-list p-4 bg-neutral-10 overflow-y-scroll" style="height:600px"><h3 class="fs-4 ms-4 py-2">探索全部</h3>';
+
+    exploreAll.forEach((item) => {
+      exploreListHTML += `<li class="explore-item d-flex justify-content-between align-items-center g-4 px-4 py-2" style="width:208px">${item}<i class="bi bi-arrow-right-short fs-6"></i></li>`;
+    });
+
+    exploreListHTML += "</ul>";
+    exploreContainer.innerHTML = exploreListHTML;
+
+    // 增加程式項目點擊事件來顯示子分類
+    const programItem = document.querySelector(".explore-item:nth-child(3)"); // 程式項
+    programItem.addEventListener("click", function () {
+      document.getElementById("code-container").classList.remove("d-none");
+    });
+  }
+
+  // 動態生成 codeAll 子分類列表
+  function createCodeList() {
+    const codeContainer = document.getElementById("code-container");
+    let codeListHTML =
+      '<ul class="code-list p-4 bg-white" style="height:600px"><h3 class="fs-4 ms-4 py-2">所有程式</h3>';
+
+    codeAll.forEach((item) => {
+      codeListHTML += `<li class="code-item d-flex justify-content-between align-items-center g-4 px-4 py-2" style="width:208px">${item}<i class="bi bi-arrow-right-short fs-6"></i></li>`;
+    });
+
+    codeListHTML += "</ul>";
+    codeContainer.innerHTML = codeListHTML;
+  }
+
+  // 初始化函數
+  createExploreList();
+  createCodeList();
+
+  // 獲取所有的 .code-item
+  const codeItems = document.querySelectorAll(".code-item");
+  const exploreItems = document.querySelectorAll(".explore-item");
+
+  // 為每個 .code-item 添加點擊事件
+  codeItems.forEach((item) => {
+    item.addEventListener("click", function () {
+      // 先移除其他項目的 active 屬性
+      codeItems.forEach((el) => el.classList.remove("active"));
+
+      // 添加 active 屬性到當前點擊的項目
+      this.classList.add("active");
+    });
+  });
+  exploreItems.forEach((item) => {
+    item.addEventListener("click", function () {
+      // 先移除其他項目的 active 屬性
+      exploreItems.forEach((el) => el.classList.remove("active"));
+      codeItems.forEach((el) => el.classList.remove("active"));
+
+      // 添加 active 屬性到當前點擊的項目
+      this.classList.add("active");
+    });
+  });
+</script>
           </ul>
         </div>
         <!-- Search bar -->
@@ -103,12 +274,12 @@
         <div
           class="dropdown-menu dropdown-menu-end p-0"
           aria-labelledby="dropdownMenuButtonNotice"
-          style="width: 320px; position: absolute;right: 480px;"
+          style="width: 320px; position: absolute; right: 480px"
         >
           <ul
             class="card card-body list-group p-0"
             aria-labelledby="dropdownMenuButtonNotice"
-            style="height: 300px;overflow-y: scroll;"
+            style="height: 300px; overflow-y: scroll"
           >
             <div
               class="card-header d-flex align-items-center justify-content-end text-primary-100 bg-white"
@@ -146,7 +317,7 @@
               class="list-group-item active d-flex align-items-center justify-content-center gap-4 p-4"
             >
               <i
-                class="bi bi-bell fs-5 text-danger-100 bg-danger-20 d-flex p-3 rounded-circle"
+                class="bi bi-megaphone fs-5 text-info-100 bg-info-20 d-flex p-3 rounded-circle"
               ></i>
               <div>
                 <h5 class="fs-4">
@@ -242,42 +413,182 @@
     </div>
   </div>
 </header>
-<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">音樂</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">攝影</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              程式
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">程式入門</a></li>
-              <li><a class="dropdown-item" href="#">網頁前端</a></li>
-              <li><a class="dropdown-item" href="#">網頁後端</a></li>
-              <li><a class="dropdown-item" href="#">網站架設</a></li>
-              <li><a class="dropdown-item" href="#">資訊安全</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">藝術</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">人文</a>
-          </li>
-        </ul>
+<!-- <section class="d-flex" style="height: 600px;">
+  <div id="explore-container" class="bg-neutral-10"></div>
+  <div id="code-container" class="bg-white"></div>
+  <div id="courses-container">
+    <h3 class="fs-4 ms-6 pb-2 pt-4">🔥 熱門網頁前端課程</h3>
+  </div>
+</section>
+
+<script>
+  const classList = [
+    {
+      title: "小白也會！從零開始學習 Python 程式設計",
+      price: "NT$ 3,200",
+      discount: "NT$ 2,480",
+      join: "已有 420 位同學加入",
+      review: "⭐4.0(333)",
+    },
+    {
+      title: "小白也會！從零開始學習 Java 程式設計",
+      price: "NT$ 3,600",
+      discount: "NT$ 2,600",
+      join: "已有 340 位同學加入",
+      review: "⭐3.8(266)",
+    },
+    {
+      title: "小白也會！從零開始學習 C++ 程式設計",
+      price: "NT$ 4,000",
+      discount: "NT$ 2,800",
+      join: "已有 320 位同學加入",
+      review: "⭐3.9(289)",
+    },
+  ];
+
+  // 容器，將生成的課程卡片插入此容器
+  const coursesContainer = document.getElementById("courses-container");
+
+  // 函數，用於創建課程卡片的 HTML
+  function createCourseCard(course) {
+    return `
+      <div class="container mb-lg-10 p-0 pt-4 position-relative d-flex border-top mx-6" style="width: 400px">
+        <img src="/assets/images/course-5.png" alt="" class="object-fit-cover rounded-4 me-3 position-relative" style="width: 100px; height: 100px" />
+        <span class="position-absolute bg-danger-20 text-danger-100 rounded-4 px-2 m-1">8折</span>
+        <div>
+          <h2 class="fs-4 fw-bold mb-4" style="letter-spacing: 0.02em; line-height: 1.5">
+            ${course.title}
+          </h2>
+          <ul class="d-flex justify-content-between p-0 pb-2 mb-2 border-bottom">
+            <li class="teacher d-flex align-items-center">
+              <img src="../assets/images/avatar-2.png" alt="" width="32" />
+              <span class="ms-2 fs-3">Kelly Hsu</span>
+            </li>
+            <li class="price">
+              <p class="text-primary fw-bold">${course.discount}</p>
+              <span class="fs-3 d-block text-end text-decoration-line-through">${course.price}</span>
+            </li>
+          </ul>
+          <div class="card-footer d-flex flex-row-reverse align-items-center justify-content-between p-0 mx-n5">
+            <div class="teacher d-flex align-items-center me-5">
+              <span class="ms-1 fs-3 text-black fw-bold">${course.review}</span>
+            </div>
+            <div class="price ms-5">
+              <span class="fs-3 d-lg-block">${course.join}</span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </nav>
-   -->    <div class="complete mt-20">
+    `;
+  }
+
+  // 遍歷 classList，將每個課程插入到容器中
+  classList.forEach((course) => {
+    coursesContainer.innerHTML += createCourseCard(course);
+  });
+
+  const exploreAll = [
+    "音樂",
+    "攝影",
+    "程式",
+    "藝術",
+    "人文",
+    "行銷",
+    "健康",
+    "投資理財",
+    "心靈成長",
+    "職場技能",
+    "生活品味",
+    "音樂",
+    "攝影",
+    "程式",
+    "藝術",
+    "人文",
+    "行銷",
+    "健康",
+    "投資理財",
+    "心靈成長",
+    "職場技能",
+    "生活品味",
+  ];
+  const codeAll = [
+    "程式入門",
+    "網頁前端",
+    "網頁後端",
+    "網站架設",
+    "資訊安全",
+    "程式語言",
+    "遊戲開發",
+    "資料科學",
+    "人工智慧",
+    "量化分析",
+  ];
+
+  // 動態生成 exploreAll 列表
+  function createExploreList() {
+    const exploreContainer = document.getElementById("explore-container");
+    let exploreListHTML =
+      '<ul class="explore-list p-4 bg-neutral-10 overflow-y-scroll" style="height:600px"><h3 class="fs-4 ms-4 py-2">探索全部</h3>';
+
+    exploreAll.forEach((item) => {
+      exploreListHTML += `<li class="explore-item d-flex justify-content-between align-items-center g-4 px-4 py-2" style="width:208px">${item}<i class="bi bi-arrow-right-short fs-6"></i></li>`;
+    });
+
+    exploreListHTML += "</ul>";
+    exploreContainer.innerHTML = exploreListHTML;
+
+    // 增加程式項目點擊事件來顯示子分類
+    const programItem = document.querySelector(".explore-item:nth-child(3)"); // 程式項
+    programItem.addEventListener("click", function () {
+      document.getElementById("code-container").classList.remove("d-none");
+    });
+  }
+
+  // 動態生成 codeAll 子分類列表
+  function createCodeList() {
+    const codeContainer = document.getElementById("code-container");
+    let codeListHTML =
+      '<ul class="code-list p-4 bg-white" style="height:600px"><h3 class="fs-4 ms-4 py-2">所有程式</h3>';
+
+    codeAll.forEach((item) => {
+      codeListHTML += `<li class="code-item d-flex justify-content-between align-items-center g-4 px-4 py-2" style="width:208px">${item}<i class="bi bi-arrow-right-short fs-6"></i></li>`;
+    });
+
+    codeListHTML += "</ul>";
+    codeContainer.innerHTML = codeListHTML;
+  }
+
+  // 初始化函數
+  createExploreList();
+  createCodeList();
+
+  // 獲取所有的 .code-item
+  const codeItems = document.querySelectorAll(".code-item");
+  const exploreItems = document.querySelectorAll(".explore-item");
+
+  // 為每個 .code-item 添加點擊事件
+  codeItems.forEach((item) => {
+    item.addEventListener("click", function () {
+      // 先移除其他項目的 active 屬性
+      codeItems.forEach((el) => el.classList.remove("active"));
+
+      // 添加 active 屬性到當前點擊的項目
+      this.classList.add("active");
+    });
+  });
+  exploreItems.forEach((item) => {
+    item.addEventListener("click", function () {
+      // 先移除其他項目的 active 屬性
+      exploreItems.forEach((el) => el.classList.remove("active"));
+      codeItems.forEach((el) => el.classList.remove("active"));
+
+      // 添加 active 屬性到當前點擊的項目
+      this.classList.add("active");
+    });
+  });
+</script>
+ -->
+    <div class="complete mt-20">
       <div class="container text-center bg-white py-20 rounded-4">
         <div class="d-flex justify-content-center align-items-center">
           <i class="bi bi-check-circle-fill fs-lg-12 fs-8 text-success-100 me-lg-10 me-4"></i>
